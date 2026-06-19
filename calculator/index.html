@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            background:linear-gradient(45deg,#0a0a0a,#3a4452)
+        }
+        .box{
+
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px;
+            border-radius: 20px;
+            background: transparent;
+            box-shadow: 0px 3px 20px rgba(154, 94, 204, 0.4);
+
+        }
+        .screen{
+            border: none;
+            padding: 16px;
+            background-color:transparent;
+            margin:10px;
+            box-shadow: 0px 3px 15px rgbs(90,95,89,0.2);
+            text-align: end;
+            font-size: 30px;
+            width: 430px;
+            cursor: pointer;
+            color: wheat;
+        }
+        .screen::placeholder{
+            color: wheat;
+        }
+
+        button{
+            border:none;
+            width: 60px;
+            height: 40px;
+            margin: 10px;
+            border-radius: 20px;
+            background:linear-gradient(50deg, rgb(212, 124, 235) ,rgb(108, 72, 207));
+            font-size: 18px;
+            color: wheat;
+            box-shadow: 0px 3px 20px rgba(103, 4, 128, 0.5) ;
+            cursor: pointer;
+        }
+      .equal{
+        background:linear-gradient(50deg,rgb(158, 17, 33))
+      }
+      .operators{
+        background: linear-gradient(50deg,rgba(58, 84, 232,0.9));
+      }
+      h1{
+        color: rgb(58, 22, 147);
+        border:1px solid white;
+        padding: 20px;
+        border-radius: 23px;
+        background-color: pink;
+        width: 25rem;
+        text-align: center;
+        box-shadow: 23px,23px,45px rgba(103,4,128,0.5);
+      }
+    </style>
+</head>
+<body>
+    <h1>calculator</h1>
+    <div class="box">
+        <input type="text" class="screen" placeholder="0" id="screen">
+        <div class="button">
+            <div class="buttons">
+
+                <button>AC</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button class="operators">/</button>
+            </div>
+            <div class="buttons">
+                
+                <button>c</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button class="operators">*</button>
+                
+            </div>
+            <div class="buttons">
+                
+                <button >%</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button class="operators">-</button>
+            </div>
+            <div class="buttons">
+                
+                <button>00</button>
+                <button>0</button>
+                <button>.</button>
+                <button class="equal">=</button>
+                <button class="operators">+</button>
+            </div>
+            
+        </div>
+    </div>
+
+<script>
+    let input=document.getElementById("screen")
+    let buttons=document.querySelectorAll('button');
+    let str="";
+    let arr= Array.from(buttons);
+    arr.forEach(button=>{
+        button.addEventListener("click",(e)=>{
+            if(e.target.innerHTML=="="){
+                str=eval(str).toString();
+                input.value=str;
+            }
+             else if(e.target.innerHTML=="AC"){
+                str=""
+                input.value=str
+            }
+             else if(e.target.innerHTML=="c"){
+                str=str.substring(0,str.length-1)
+                input.value=str
+            }
+            else{
+                str=str+e.target.innerHTML;
+                input.value=str;
+            }
+        })
+    })
+</script>
+</body>
+</html>
