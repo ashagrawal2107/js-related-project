@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: #131010;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    position: relative;
+
+}
+.clock{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url(anime.jpg);
+    background-size: cover;
+    border: 2px solid rgba(255,255,255,0.24);
+    box-shadow: 0px 0px 30px rgba(0,0,0,1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.clock span{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align:center;
+}
+.clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 20px;
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgb(227, 224, 230);
+    z-index: 2;
+}
+.hands{
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: end;
+}
+.hands i{
+position: absolute;
+width: 4px;
+height: var(--h);
+background-color: white;
+border-radius: 10px;
+background-color: var(--clr);
+}
+
