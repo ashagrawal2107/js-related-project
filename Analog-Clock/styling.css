@@ -8,10 +8,20 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: #131010;
+    flex-direction: column;
+   background: linear-gradient(rgb(68, 54, 190),rgb(116, 54, 141));
     color: white;
     justify-content: center;
     align-items: center;
+    gap: 45px;
+}
+h1{
+    background: linear-gradient(rgb(8, 169, 233) ,rgb(192, 25, 117));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 70px;
+   -webkit-text-stroke: 2.5px black;
 }
 .container{
     position: relative;
